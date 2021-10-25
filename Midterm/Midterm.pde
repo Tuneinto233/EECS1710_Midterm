@@ -4,21 +4,10 @@ ArrayList<Bullet> bullets;
 ArrayList<Enemy> enemies;
 boolean team1 = true;
 boolean alive = true;
-PVector hitbox;
-boolean hitboxtest = false;
 PImage plane1;
+PFont font;
 
 
-
-boolean hitDetectRect(PVector p1, PVector  p2) {
-  hitbox = hitbox.copy().div(2);
-
-  if (p1.x >= p2.x - hitbox.x && p1.x <= p2.x + hitbox.x && p1.y >= p2.y - hitbox.y && p1.y <= p2.y + hitbox.y) {
-    return true;
-  } else {
-    return false;
-  }
-}
 
 
 void setup() {
@@ -26,10 +15,11 @@ void setup() {
   bullets = new ArrayList<Bullet>();
   enemies = new ArrayList<Enemy>();
   enemy = new Enemy();
-  hitbox = new PVector(50, 50);
   plane1 = loadImage("plane1.png");
   plane1.resize(50, 50);
   imageMode(CENTER);
+  font = createFont("Arial", 50);
+  textFont(font, 50);
 }
 
 void draw() {
@@ -45,13 +35,9 @@ void draw() {
     team1 = false;
   }
   spawnEnemy();
-
-  if(hitboxtest){
-  if (hitDetectRect(enemy.position, bullet.position)) {
-    println("enemykilled");
-  }
-  }
+  text(0, 50, 50);
 }
+  
 
 
 void mousePressed() {

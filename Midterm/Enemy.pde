@@ -6,14 +6,14 @@ class Enemy {
   float y;
   boolean alive = true;
   int timestamp;
-  float lifetime = 20000;
+  float lifetime = 10000;
 
   Enemy() {
     position = new PVector(random(25, width-25), y);
     plane3 = loadImage("plane3.png");
     plane3.resize(50, 50);
     timestamp = millis();
-    position.y = -50;
+    position.y = -200;
     imageMode(CENTER);
   }
 
