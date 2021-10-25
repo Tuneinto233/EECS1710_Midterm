@@ -14,6 +14,7 @@ class Enemy {
     plane3.resize(50, 50);
     timestamp = millis();
     position.y = -50;
+    imageMode(CENTER);
   }
 
   void spawn() {
